@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    /* 🌌 Improved Color System */
+    --main-blue: #1e3a8a;   /* nav + cards */
+    --light-blue: #111827;  /* header + footer */
+    --dark-blue: #0b0f1a;   /* hover / deep tone */
+}
+
+body {
+    font-family: "Google Sans", sans-serif;
+    background: linear-gradient(135deg, #0b0f1a, #1a2238);
+    color: white;
+}
+
+header {
+    background-color: var(--light-blue);
+}
+
+header .logo {
+    text-align: center;
+    padding: 20px 0;
+}
+
+header .logo h1 {
+    font-size: 2em;
+    color: #60a5fa; /* softer blue */
+    width: 100%;
+}
+
+/* ☰ Mobile Toggle */
+#navbar-toggler {
+    display: none;
+    width: 60px;
+    height: 40px;
+}
+
+#navbar-toggler span {
+    background-color: var(--main-blue);
+    display: block;
+    height: 4px;
+    margin: 8px 0;
+    border-radius: 2px;
+    position: relative;
+    top: 0;
+    opacity: 1;
+    transition: 0.4s;
+}
+
+#navbar-toggler.open span:first-child {
+    transform: rotate(45deg);
+    top: 12px;
+}
+
+#navbar-toggler.open span:nth-child(2) {
+    opacity: 0;
+}
+
+#navbar-toggler.open span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: -12px;
+}
+
+@media (max-width: 870px) {
+    #navbar-toggler {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+}
+
+/* 🧭 NAVBAR */
+nav {
+    background-color: var(--main-blue);
+}
+
+@media (max-width: 870px) {
+    nav {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.6s ease;
+    }
+
+    nav.open {
+        max-height: 700px;
+    }
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 870px) {
+    nav ul {
+        display: block;
+        text-align: center;
+    }
+}
+
+nav ul li a {
+    display: block;
+    padding: 5px 15px;
+    background-color: var(--main-blue);
+    color: white;
+    text-decoration: none;
+    font-size: 1.4em;
+    transition: 0.3s;
+}
+
+@media (max-width: 870px) {
+    nav ul li a {
+        font-size: 1.8em;
+        padding: 10px 15px;
+    }
+}
+
+/* ✨ Hover Effect */
+nav ul li a:hover {
+    background-color: #f59e0b; /* gold highlight */
+    color: #111;
+}
+
+/* 📦 MAIN CONTENT */
+main {
+    padding-top: 80px; /* adjust depending on navbar height */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main h1 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* 🌍 CARD SECTIONS */
+main section {
+    border-radius: 25px;
+    background-color: var(--main-blue);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+main section h2 {
+    text-align: center;
+    color: #fff;
+}
+
+/* 🧾 CONTENT GRID */
+.planet-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+/* 📄 TEXT INNER BOX */
+.planet-content div {
+    background-color: #f9fafb;
+    color: #271111;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px / 10px;
+}
+
+.planet-content div p {
+    line-height: 1.5;
+}
+
+.planet-content div ul {
+    padding: 15px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.planet-content div ul li {
+    font-size: 0.9em;
+    padding: 7px 0;
+}
+
+/* 🖼️ IMAGE */
+.planet-image {
+    width: 350px;              /* 🔵 BIGGER CIRCLE */
+    height: 350px;             /* 🔵 BIGGER CIRCLE */
+    border-radius: 50%;        /* 🔴 keeps it a circle */
+    object-fit: cover;         /* 🟣 keeps image fitted */
+    display: block;
+    margin: 20px auto;         /* centers it */
+    border: 4px solid var(--main-blue);
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+/* 📱 MOBILE FIX */
+@media (max-width: 870px) {
+    .planet-content {
+        grid-template-columns: 1fr;
+    }
+
+    .planet-content div {
+        border-radius: 10px;
+    }
+}
+
+/* 🧾 FOOTER */
+footer {
+    background-color: var(--light-blue);
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer p {
+    font-size: 1em;
+    color: #e5e7eb;
+}
+
+/* 🌌 PLANET COLOR THEMES */
+
+/* ☀️ SUN */
+.sun {
+    background: linear-gradient(135deg, #f59e0b, #b45309);
+}
+
+/* ☿️ MERCURY */
+.mercury {
+    background: linear-gradient(135deg, #9ca3af, #4b5563);
+}
+
+/* ♀️ VENUS */
+.venus {
+    background: linear-gradient(135deg, #fbbf24, #92400e);
+}
+
+/* 🌍 EARTH */
+.earth {
+    background: linear-gradient(135deg, #22c55e, #1e3a8a);
+}
+
+/* 🔴 MARS */
+.mars {
+    background: linear-gradient(135deg, #ef4444, #7f1d1d);
+}
+
+/* 🟠 JUPITER */
+.jupiter {
+    background: linear-gradient(135deg, #f97316, #78350f);
+}
+
+/* 🪐 SATURN */
+.saturn {
+    background: linear-gradient(135deg, #eab308, #a16207);
+}
+
+/* 🔵 URANUS */
+.uranus {
+    background: linear-gradient(135deg, #67e8f9, #0e7490);
+}
+
+/* 🔷 NEPTUNE */
+.neptune {
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+}
+
+/* 🧊 PLUTO */
+.pluto {
+    background: linear-gradient(135deg, #d1d5db, #6b7280);
+}
